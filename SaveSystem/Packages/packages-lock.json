@@ -4,8 +4,10 @@
       "version": "https://github.com/HaonTnev/Tools.git#upm",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "f7f25d7c8a4beeb75c2b2dcefae3a76bc3333655"
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "433691cc6bfb7cac1c1283c226b091750a1e4af4"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.5",
