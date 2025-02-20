@@ -8,28 +8,33 @@ public static class SaveSystem
     /// 
     /// </summary>
     /// <param name="player"></param>
-    public static void SavePlayer(Player player)
+    /// 
+
+    
+    public static void SaveObject(SaveAbleObject saveAbleObject)
     {
         // save format
         BinaryFormatter formatter = new BinaryFormatter();
 
         // location to the operating system that is not changing
-        string path = Application.persistentDataPath + "/player.data";
+        string path = Application.persistentDataPath + "/saveObject.data";
 
         // Filestream to read and write to it
         FileStream stream = new FileStream(path, FileMode.Create);
 
         // data to get saved
-        Data data = new Data(player);
+        Data data = new Data(saveAbleObject);
 
         // write data to the file
         formatter.Serialize(stream, data);
         stream.Close();
     }
+    
 
-    public static Data LoadPlayer()
+
+    public static Data LoadObject()
     {
-        string path = Application.persistentDataPath + "/player.data";
+        string path = Application.persistentDataPath + "/saveObject.data";
         if (File.Exists(path))
         {
             // Open file 
