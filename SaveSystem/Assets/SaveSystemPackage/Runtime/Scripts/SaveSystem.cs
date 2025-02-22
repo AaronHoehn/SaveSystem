@@ -5,12 +5,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
     /// <summary>
-    /// 
+    /// Saves the date from the sabeAbleObject into a Binary format on a path to a persistent data directory. C:\Users\<user>\AppData\LocalLow\<company name>
     /// </summary>
     /// <param name="player"></param>
-    /// 
 
-    
     public static void SaveObject(SaveAbleObject saveAbleObject)
     {
         // save format
@@ -29,9 +27,11 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
-    
 
 
+    /// <summary>
+    /// Loads the saved data from C:\Users\<user>\AppData\LocalLow\<company name>
+    /// </summary>
     public static Data LoadObject()
     {
         string path = Application.persistentDataPath + "/saveObject.data";
