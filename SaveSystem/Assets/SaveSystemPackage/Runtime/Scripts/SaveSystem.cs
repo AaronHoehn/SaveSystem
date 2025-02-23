@@ -9,7 +9,7 @@ public static class SaveSystem
     /// </summary>
     /// <param name="player"></param>
 
-    public static void SaveObject(SaveAbleObject saveAbleObject)
+    public static void SaveGame(SaveGameManager saveGameManager)
     {
         // save format
         BinaryFormatter formatter = new BinaryFormatter();
@@ -21,7 +21,7 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         // data to get saved
-        Data data = new Data(saveAbleObject);
+        SaveData data = new SaveData(saveGameManager);
 
         // write data to the file
         formatter.Serialize(stream, data);
@@ -32,7 +32,7 @@ public static class SaveSystem
     /// <summary>
     /// Loads the saved data from C:\Users\<user>\AppData\LocalLow\<company name>
     /// </summary>
-    public static Data LoadObject()
+    public static SaveData Loadgame()
     {
         string path = Application.persistentDataPath + "/saveObject.data";
         if (File.Exists(path))
@@ -41,7 +41,7 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream  = new FileStream(path, FileMode.Open);
 
-            Data data = formatter.Deserialize(stream) as Data;
+            SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
             return data;
         }
