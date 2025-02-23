@@ -714,10 +714,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c426f747feaca469310fb5272b7bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveName: SaveGame2
+  saveName: SaveGame3
   player: {fileID: 1526245371}
-  playerLevel: 20
-  playerHealth: 1000
+  playerLevel: 72
+  playerHealth: 5642
 --- !u!4 &1158264737
 Transform:
   m_ObjectHideFlags: 0
@@ -946,7 +946,7 @@ Transform:
   m_GameObject: {fileID: 1526245371}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.97, y: -1.97, z: 7.31}
+  m_LocalPosition: {x: -7.07, y: -1.97, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
