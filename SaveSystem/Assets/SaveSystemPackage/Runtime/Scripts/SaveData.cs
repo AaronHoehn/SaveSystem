@@ -3,6 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
+    // This script can be modified to save the desired data. The values of the data must be retrieved from the SaveGameManager.
+
     public int playerLevel;
     public int playerHealth;
     public float[] playerPosition;

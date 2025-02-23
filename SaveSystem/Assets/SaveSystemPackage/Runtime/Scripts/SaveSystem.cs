@@ -66,6 +66,9 @@ public static class SaveSystem
         return Application.persistentDataPath + $"/{saveName}.data";
     }
 
+    /// <summary>
+    /// Saves the date from the sabeAbleObject into a Binary format on a path to a persistent data directory. C:\Users\<user>\AppData\LocalLow\<saveName.data>
+    /// </summary>
     public static void SaveGame(SaveGameManager saveGameManager, string saveName)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -78,6 +81,9 @@ public static class SaveSystem
         stream.Close();
     }
 
+    /// <summary>
+    /// Loads the saved data from C:\Users\<user>\AppData\LocalLow\<saveName.data>
+    /// </summary>
     public static SaveData LoadGame(string saveName)
     {
         string path = GetSavePath(saveName);
@@ -97,6 +103,7 @@ public static class SaveSystem
         }
     }
 
+    // Gets all the stored saveFiles as strings
     public static List<string> GetSaveFiles()
     {
         List<string> saveFiles = new List<string>();

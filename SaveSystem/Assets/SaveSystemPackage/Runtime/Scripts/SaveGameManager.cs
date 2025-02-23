@@ -3,18 +3,25 @@ using System.Collections.Generic;
 
 public class SaveGameManager : MonoBehaviour
 {
+    // This scrip can be edited to set new variables to be saved
+
     public string saveName = "Save1"; // Default save name
     [SerializeField] private GameObject player;
 
+
     #region Saveable Variables
 
-    public int playerLevel = 4;
-    public int playerHealth = 40;
+    public int playerLevel = 1;
+    public int playerHealth = 300;
 
     public GameObject Player => player;
 
     #endregion
 
+
+    /// <summary>
+    /// Calls the SaveGame function of the SaveSystem if a name for the savegame is set
+    /// </summary>
     public void SaveGame()
     {
         if (string.IsNullOrEmpty(saveName))
@@ -27,6 +34,10 @@ public class SaveGameManager : MonoBehaviour
         Debug.Log("Game Saved: " + saveName);
     }
 
+
+    /// <summary>
+    /// Loads the saved data from the SaveData script if a saves savegame got selected
+    /// </summary>
     public void LoadGame()
     {
         if (string.IsNullOrEmpty(saveName))
