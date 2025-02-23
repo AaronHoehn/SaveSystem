@@ -17,7 +17,7 @@ MonoBehaviour:
   useSettingsCompanyName: 1
   packageName: savesystem
   useSettingsProductName: 1
-  version: 0.1.1
+  version: 0.1.2
   useSettingsVersion: 1
   displayName: SaveSystem
   _useSettingsProductName: 1

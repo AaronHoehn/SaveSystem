@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SaveAbleObject))]
+[CustomEditor(typeof(SaveGameManager))]
 
 public class LoadSaveButton : Editor
 {
@@ -9,12 +9,12 @@ public class LoadSaveButton : Editor
     {
         DrawDefaultInspector();
 
-        SaveAbleObject saveAbleObject = (SaveAbleObject)target;
+        SaveGameManager saveGameManager = (SaveGameManager)target;
 
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Save"))
         {
-            saveAbleObject.SaveObject();
+            saveGameManager.SaveGame();
         }
         EditorGUILayout.EndHorizontal();
 
@@ -23,7 +23,7 @@ public class LoadSaveButton : Editor
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Load"))
         {
-            saveAbleObject.LoadObject();
+            saveGameManager.LoadGame();
         }
         EditorGUILayout.EndHorizontal();
     }
