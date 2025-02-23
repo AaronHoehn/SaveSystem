@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -50,5 +51,62 @@ public static class SaveSystem
             Debug.LogError("Save file not found in " + path);
             return null;
         }
+    }
+}
+*/
+using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
+
+public static class SaveSystem
+{
+    private static string GetSavePath(string saveName)
+    {
+        return Application.persistentDataPath + $"/{saveName}.data";
+    }
+
+    public static void SaveGame(SaveGameManager saveGameManager, string saveName)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = GetSavePath(saveName);
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        SaveData data = new SaveData(saveGameManager);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static SaveData LoadGame(string saveName)
+    {
+        string path = GetSavePath(saveName);
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            SaveData data = formatter.Deserialize(stream) as SaveData;
+            stream.Close();
+            return data;
+        }
+        else
+        {
+            Debug.LogError("Save file not found in " + path);
+            return null;
+        }
+    }
+
+    public static List<string> GetSaveFiles()
+    {
+        List<string> saveFiles = new List<string>();
+        string[] files = Directory.GetFiles(Application.persistentDataPath, "*.data");
+
+        foreach (string file in files)
+        {
+            saveFiles.Add(Path.GetFileNameWithoutExtension(file));
+        }
+
+        return saveFiles;
     }
 }
